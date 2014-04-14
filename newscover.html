@@ -1,0 +1,236 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+<head>
+<title>3D Motion Capture Laboratory - News Coverage</title>
+<link rel="stylesheet"
+      href="css/general.css"
+      type="text/css"
+      media="all" />
+
+<style type="text/css" media="all">
+<!--
+    #nav #menu-news
+    {
+        background-image:url(image/camera-on.png);
+    }
+-->
+</style>
+
+</head>
+<body  onload="start();">
+
+<div id="header" >
+        <div id="cityu" >
+            <a href="http://www.cityu.edu.hk/" target="_blank"><img src="image/cityu_logo_big.gif" /></a>
+        </div>
+        <div id="cs" >
+            <a href="http://www.cs.cityu.edu.hk/" target="_blank">Department of <br/>Computer Science</a>
+        </div>
+        <div id="mocap">
+            <a href="http://mocap.cs.cityu.edu.hk/" target="_blank"><img src="image/3DMotionCaptureLaboratory.png" /></a>
+        </div>
+</div>
+
+
+<div id="wrapper">
+
+    <style type="text/css" media="all">
+   #nav ul li {
+        background-image:url(image/camera-off.png);
+   }
+</style>
+<div id="nav" >
+    <img src="image/mocap.jpg"/>
+        <ul>
+            <a href="about.html" target="_parent"><li id="menu-about">About</li></a>
+            <a href="people.html" target="_parent"><li id="menu-people">People</li></a>
+            <a href="project.html" target="_parent"><li id="menu-project">Project</li></a>
+            <a href="publication.html" target="_parent"><li id="menu-publications">Publications</li></a>
+            <a href="./Event/event-all.html" target="_parent"><li id="menu-events">Events</li></a>
+            <a href="newscover.html" target="_parent"><li id="menu-news">News Cover</li></a>
+            <a href="location.html" target="_parent"><li id="menu-location">Location</li></a>
+        </ul>
+</div>
+
+
+    <div id="content" >
+    <div id="description" >
+        <div class="news">
+            <h2>News Coverage</h2>
+            <ul id="TVB">
+                <li>
+                    <b>TVB Interview, <i>Youth Nation </i>&#28608;&#20778;&#19968;&#26063;, 15 March 2008</b>
+                </li>
+            </ul>
+            <p>
+                <img  src="coverage/YouthNationInterview2.jpg">
+            </p>
+
+            <!-- Beginning of video showing playlist -->
+
+            <!--[if IE]>
+            <script type="text/javascript">
+               function start(){
+                  var rowcurrent = videotable.insertRow();
+                  var firstcell = rowcurrent.insertCell();
+                  firstcell.rowSpan = myVideoID.length;
+                  firstcell.id = "video";
+                  firstcell.innerHTML = "<iframe width=\"480\" height=\"360\" src=\"http://www.youtube.com/embed/"+myVideoID[0]+"?rel=0\" frameborder=\"0\"></iframe>";
+               }
+            </script>
+            <![endif]-->
+      
+            <!--[if !IE]> -->
+            <script type="text/javascript">
+               function start(){
+                  tbl_html += "<script type=\"text/javascript\" src=\"http://gdata.youtube.com/feeds/api/videos/gzDS-Kfd5XQ?v=2&amp;alt=json-in-script&amp;callback=youtubeFeedCallback\">";
+                  tbl_html += "<\/script>";
+                  
+                  var tbl = document.getElementById('videotable');
+                  
+                  var tbl_html;
+                  
+                  tbl_html = "<tr>";
+                  tbl_html += "<th id=\"video\" rowspan=\""+myVideoID.length+"\">";
+                  tbl_html += "<iframe width=\"480\" height=\"360\" src=\"http://www.youtube.com/embed/"+myVideoID[0]+"?rel=0\" frameborder=\"0\"></iframe>";
+                  tbl_html += "</th>";
+                  tbl_html += "</tr>";
+                  tbl.innerHTML = tbl_html;  //IE reports error
+                  
+               }
+            </script>
+            <!-- <![endif]-->
+      
+            <script type="text/javascript">
+            
+               // Need to initialize variables about the video      
+               var myVideoID = new Array();
+               myVideoID[0] = "-UeDvgblNro"; 
+            
+               var myTime  = new Array();
+               myTime[0] = "3:15";
+            
+               var myDescription  = new Array();
+               myDescription[0] = "Demo to Visitors from Hefei Institute of Technology";
+               
+               
+               function changeVideo(target){
+                  var video = document.getElementById('video');
+                  
+                  video.innerHTML = "<iframe width=\"480\" height=\"360\" src=\"http://www.youtube.com/embed/"+myVideoID[target]+"?rel=0\" frameborder=\"0\"></iframe>";
+               }
+               
+               function youtubeFeedCallback(data) {
+                  alert("hi");
+                  var s = '';
+                  s += '<img src="' + data.entry.media$group.media$thumbnail[0].url + '" width="' + data.entry.media$group.media$thumbnail[0].width + '" height="' + data.entry.media$group.media$thumbnail[0].height + '" alt="' + data.entry.media$group.media$thumbnail[0].yt$name + '" align="right"/>';
+                  s += '<b>Title:</b> ' + data.entry.title.$t + '<br/>';
+                  s += '<b>Author:</b> ' + data.entry.author[0].name.$t + '<br/>';
+                  s += '<b>Published:</b> ' + new Date(data.entry.published.$t).toLocaleDateString() + '<br/>';
+                  s += '<b>Duration:</b> ' + Math.floor(data.entry.media$group.yt$duration.seconds / 60) + ':' + (data.entry.media$group.yt$duration.seconds % 60) + ' (' + data.entry.media$group.yt$duration.seconds + ' seconds)<br/>';
+                  if (data.entry.gd$rating) {
+                    s += '<b>Rating:</b> ' + data.entry.gd$rating.average.toFixed(1) + ' out of ' + data.entry.gd$rating.max + ' (' + data.entry.gd$rating.numRaters + ' ratings)<br/>';
+                  }
+                  s += '<b>Statistics:</b> ' + data.entry.yt$statistics.favoriteCount + ' favorite(s); ' + data.entry.yt$statistics.viewCount + ' view(s)<br/>';
+                  s += '<br/>' + data.entry.media$group.media$description.$t.replace(/\n/g, '<br/>') + '<br/>';
+                  s += '<br/><a href="' + data.entry.media$group.media$player.url + '" target="_blank">Watch on YouTube</a>';
+                  document.write(s);
+                }
+            </script>
+
+            <table id="videotable" ></table>
+
+            <!-- End of video -->
+            
+            <ul>
+                <li>
+                    <b>PC Market, Vol. 763, pp.24-25, 11 March 2008</b>
+                </li>
+            </ul>
+            <p>
+                <a href="coverage/news007-PCMarket-2008-03-11.jpg">
+                    <img  src="coverage/TN_news007-PCMarket-2008-03-11.jpg" width="399" height="256">
+                </a>
+            </p>
+            
+            <ul>
+                <li>
+                    <b>Tai Kung	Pao &#22823;&#20844;&#22577;, C5, 30 January 2008</b>
+                </li>
+            </ul>
+            <p>
+                <a href="coverage/news006-TaiKungPao-2008-01-30.jpg">
+                    <img  src="coverage/TN_news006-TaiKungPao-2008-01-30.jpg">
+                </a>
+            </p>
+            
+            <ul>
+                <li>
+                    <b>Sing Tao Daily &#26143;&#23798;&#26085;&#22577;, F2, 22 January 2008</b>
+                </li>
+            </ul>
+            <p>
+                <a href="coverage/news003-SingTaoDaily-2008-01-22.jpg">
+                    <img  src="coverage/TN_news003-SingTaoDaily-2008-01-22.jpg" width="359" height="256">
+                </a>
+            </p>
+            
+            <ul>
+                <li>
+                    <b>	Ming Pao &#26126;&#22577;, A8, 22 January 2008</b>
+                </li>
+            </ul>
+            <p>
+                <a href="coverage/news004-MingPao-2008-01-22.jpg">
+                    <img  src="coverage/TN_news004-MingPao-2008-01-22.jpg" width="194" height="256">
+                </a>
+            </p>
+            
+            <ul>
+                <li>
+                    <b><a target="_blank" href="http://paper.wenweipo.com/2008/01/22/HK0801220054.htm">Wen Wei Po &#25991;&#21295;&#22577;, 22 January 2008</a></b>
+                </li>
+            </ul>
+            <p>
+                <a href="coverage/news005-WenWeiPo-2008-01-22.jpg">
+                    <img  src="coverage/TN_news005-WenWeiPo-2008-01-22.jpg" width="433" height="256">
+                </a>
+            </p>
+            
+            <ul>
+                <li>
+                    <b>High Tech Weekly, p.122, 17 Aug. 2006 </b>
+                </li>
+            </ul>
+            <p>
+                <a href="coverage/news002.jpg">
+                    <img  src="coverage/TN_news002.jpg" width="178" height="256">
+                </a>
+            </p>
+            
+            <ul>
+                <li>
+                    <b><a target="_blank" href="http://www.metrohk.com.hk/index.php?cmd=detail&id=67058&search=1">Metro Daily Hong Kong &#37117;&#24066;&#26085;&#22577;, p.05, 27 July 2006</a></b>
+                </li>
+            </ul>
+            <p>
+                <a href="coverage/news001.jpg">
+                    <img  src="coverage/TN_news001.jpg" width="153" height="256">
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+</div>
+    
+<div id="footer" >
+    <div id="footer-inner" >
+        If you have any comments or suggestions, please feel free to email <a href="http://www.cs.cityu.edu.hk/~howard/" target="_blank">Dr. Howard Leung</a> at <a href="mailto:howard@cityu.edu.hk?subject=Regarding 3D Motion Capture Laboratory webpage">howard@cityu.edu.hk</a>.
+    </div>
+</div>
+
+</body>
+</html>

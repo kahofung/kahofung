@@ -1,0 +1,50 @@
+
+
+
+#videoframe {
+   display:table-cell;
+   vertical-align: middle;
+   padding-bottom: 10px;
+   margin: auto;
+}
+
+#videoprevpage, #videoindex {
+   float:left;
+}
+
+
+#videowrapper #videoplayercontrol {
+   width: 175px;
+   margin: auto;
+}
+
+#videoplayercontrol {
+   height: 30px;   
+}
+
+#videocontrol button {
+   width: 30px;
+   height: 30px;
+   padding: 0px;
+   margin: 0px;
+}
+
+/* The following is the same as photoviewer.css */
+.buttonimage {
+   width: 20px;
+   height: 20px;
+   padding: 0px;
+   margin: 0px;
+}
+
+#videoindex {
+   font-size: 0.75em;
+   min-height: 40px;
+   vertical-align: middle;
+   text-align: center;
+   padding-top:10px;
+}
+
+#videothumb {
+   padding-bottom: 10px;
+}

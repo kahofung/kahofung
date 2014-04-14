@@ -1,0 +1,150 @@
+
+#header #cityu {
+        float:right;
+        padding-right:0.5em;
+        height:4em;
+}
+
+#header #cs {
+        width: 9em;
+        float:left;
+	padding-left: 0.5em;
+        padding-top: 0.5em;
+        padding-bottom: 1em;
+        vertical-align: middle;
+        letter-spacing: -1px;
+        font-size: 1em;
+        font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
+        font-weight: bold;
+        text-shadow: 0px 1px 0px #fafafa;
+}
+
+#header img {
+        border-style: none;
+}
+
+#header #cs>a {
+        color: #444;
+        text-decoration: none;
+}
+
+#header #mocap {
+        padding-left:1em; 
+}
+
+#header #mocap img {
+        height: 3em;
+}
+#wrapper {
+	clear: both;
+        padding-bottom: 2em;
+}
+
+#nav ul {
+        list-style-type:none;
+        padding:0px;
+        margin:0px;
+
+}
+
+#nav ul li {
+        background-repeat:no-repeat;
+        background-position:0px 0px; 
+        padding-left:25px;
+        margin-bottom:5px;
+}
+
+    
+#nav a>li:hover {
+        background-color: #FFFF00;
+}
+
+#nav {
+        float:left;
+        width:7em;
+        margin:1em;
+}
+
+#nav img {
+        width:6.5em;
+}
+
+#content {
+	position: absolute;
+	margin-left:8em;
+	padding-bottom: 2em;
+}
+
+#content #description {
+	padding-left: 0.5em;
+	padding-bottom: 0.5em;
+        padding-right:1em;
+        text-align: justify;
+}
+
+#content .pub {
+	font-style: italic;
+}
+
+.pub-ul li{
+	margin-bottom: 0.5em;
+}
+
+.location-ol li {
+	margin-bottom: 0.5em;
+}
+.location-ol img{
+	width: 128px;
+	height: 96px;
+	padding: 5px;
+}
+
+.news img {
+	padding-left: 40px;
+        border-style: none;
+}
+
+.news #videotable {
+	padding-left: 40px;
+	z-index:0;
+}
+
+.project {
+	float:left;
+	font-size: 0.9em;
+	text-align: center;
+	padding: 0.5em;
+}
+
+.project img {
+	border-style: none;
+	height: 200px;
+}
+
+button {
+	padding: 0;	
+}
+
+.buttonimage {
+	padding: 0;
+	margin: 0;
+}
+
+#footer {
+	position:absolute;        
+	bottom:0;
+	width:100%;
+	min-height:2em;
+	background-color: #FFFFFF;
+	z-index:999;
+}
+
+html>body #footer{position:fixed}/* for moz/opera and others*/
+
+#footer-inner {
+        padding-top:0.7em;
+        padding-bottom:0.5em;
+        font-size: 0.8em;
+        overflow:visible !important;        
+
+}
